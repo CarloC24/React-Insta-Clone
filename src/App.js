@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import dummyData from './dummy-data';
 import Header from './components/Header';
 import Content from './components/Content';

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import heart from "./HeaderImg/heart.png"; 
 import chat from './HeaderImg/chat.png';
 import Comments from './Comments.js';
+import './css/content.scss';
 
 class Content extends React.Component {
 

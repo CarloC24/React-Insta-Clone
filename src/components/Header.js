@@ -4,6 +4,7 @@ import Instagram from './HeaderImg/Instagram.png';
 import chat from './HeaderImg/chat.png';
 import heart from "./HeaderImg/heart.png";
 import avatar from "./HeaderImg/avatar.png";
+import './css/header.scss';
 
 class Header extends React.Component {
     render() {

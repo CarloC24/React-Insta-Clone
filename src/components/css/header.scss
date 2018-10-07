@@ -1,0 +1,42 @@
+header {
+    margin:0 auto;
+    width:100%;
+    border:1px solid black;
+
+    nav {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        img[alt="picturelogo"]{
+            width:40px;
+            height:40px;
+            margin:55px 0px 0px 20px;
+        }
+        img[alt="instagramtext"]{
+            width:15%;
+            height:150px;
+        }
+        input {
+            width:230px;
+            height:30px;
+            border-radius:5px;
+            margin-top:60px;
+        }
+        img[alt="chat"]{
+            width:30px;
+            height:30px;
+            margin:55px 0px 0px 10px;
+        }
+        img[alt="heart"]{
+            width:30px;
+            height:30px;
+            margin-top:55px;
+        }
+        img[alt="avatar"]{
+            width:30px;
+            height:30px;
+            margin:55px 40px 0px 0px;
+        }
+    }//nav
+}// header
