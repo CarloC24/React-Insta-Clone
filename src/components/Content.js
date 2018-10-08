@@ -15,10 +15,14 @@ class Content extends React.Component {
                     <img src={props.data.thumbnailUrl} alt="img1" />
                     <p>{props.data.username}</p>
                 </nav>
+                <div className="imagecontainer">
                 <img src={props.data.imageUrl} alt="mainimg"/>
-                <img src={heart} alt="heartcontent" />
-                <img src={chat} alt="chatcontent" />
-                <Comments dataProp={props.data}/>
+                </div>
+                <div className="section">            
+                    <img src={heart} alt="heartcontent" />
+                    <img src={chat} alt="chatcontent" />
+                    <Comments dataProp={props.data}/>
+                </div>
             </div>
         )
     }

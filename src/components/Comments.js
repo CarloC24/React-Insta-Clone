@@ -8,7 +8,7 @@ class Comments extends Component {
         const props = this.props;
         return(
             <div className="comments">
-                <p>{props.dataProp.likes} likes</p>
+                <p className="likes">{props.dataProp.likes} likes</p>
                 {props.dataProp.comments.map( (item,index) => {
                     return(
                         <div className="comments-section" key={index}>
