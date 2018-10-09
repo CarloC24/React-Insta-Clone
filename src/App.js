@@ -9,13 +9,28 @@ class App extends Component {
     super(props)
     this.state = {
        dummyData: dummyData,
+       specificPosts: [],
     }
 }
+
+filterPosts = event => {
+  const filtered = this.state.dummyData.filter(postItem => {
+    if(postItem.username.includes(event.target.value)){
+      return postItem;
+    }
+  })
+  this.setState({specificPosts: filtered}); 
+}
+
   render() {
     return (
       <div className="App">
-      <Header />
-      {this.state.dummyData.map( (item,index) => {
+      <Header filterposts={this.filterPosts}/>
+      {this.state.specificPosts.length > 0 ? this.state.specificPosts.map( (item,index) => {
+        return(
+          <Content data={item} key={index} />
+        )
+      }):this.state.dummyData.map( (item,index) => {
         return(
           <Content data={item} key={index} />
         )
