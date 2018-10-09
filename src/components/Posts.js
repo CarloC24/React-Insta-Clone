@@ -14,10 +14,8 @@ class Posts extends Component {
     }
     }
 
-  componentDidMount = () => {
-  setTimeout(()=> {
+  componentDidMount = () => {  
     this.setState({dummyData: dummyData})
-  },2000)
 }
 
 
