@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import heart from "./HeaderImg/heart.png"; 
-import chat from './HeaderImg/chat.png';
 import Comments from './Comments.js';
 import './css/content.scss';
 
 class Content extends React.Component {
+
+
 
     render(){
         const props = this.props
@@ -19,9 +19,7 @@ class Content extends React.Component {
                 <img src={props.data.imageUrl} alt="mainimg"/>
                 </div>
                 <div className="section">            
-                    <img src={heart} alt="heartcontent" />
-                    <img src={chat} alt="chatcontent" />
-                    <Comments dataProp={props.data}/>
+                    <Comments dataProp={props.data} />
                 </div>
             </div>
         )
@@ -33,7 +31,7 @@ Content.propTypes = {
     data: PropTypes.shape({
         thumbnailUrl: PropTypes.string,
         username: PropTypes.string,
-        imageUrl: PropTypes.string
+        imageUrl: PropTypes.string,
     })
 }
 
