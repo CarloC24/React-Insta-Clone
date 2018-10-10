@@ -3,6 +3,7 @@ import '../App.scss';
 import dummyData from '../dummy-data';
 import Header from './Header';
 import Content from './Content';
+import AddNewPost from './AddPost';
 
 
 class Posts extends Component {
@@ -11,6 +12,7 @@ class Posts extends Component {
     this.state = {
        dummyData: [],
        specificPosts: [],
+       addNewPosts: false
     }
     }
 
@@ -18,7 +20,12 @@ class Posts extends Component {
     this.setState({dummyData: dummyData})
 }
 
-
+toggle = () => {
+  this.setState(prevState => { return {
+    addNewPosts:!prevState.addNewPosts
+  }
+  })
+}
 filterPosts = event => {
   const filtered = this.state.dummyData.filter(postItem => {
     if(postItem.username.includes(event.target.value)){
@@ -32,7 +39,7 @@ filterPosts = event => {
   render() {
     return (
       <div className="App">
-      <Header filterposts={this.filterPosts}/>
+      <Header filterposts={this.filterPosts} toggle={this.toggle}/>
       {this.state.specificPosts.length > 0 ? this.state.specificPosts.map( (item,index) => {
         return(
           <Content data={item} key={index} />

@@ -38,7 +38,7 @@ class Header extends React.Component {
         return(
             <Heading>
                 <Nav>
-                    <PictureLogoS src={PictureLogo} alt="picturelogo"/>
+                    <PictureLogoS src={PictureLogo} alt="picturelogo" onClick={this.props.toggle}/>
                     <InstagramText src={Instagram} alt="instagramtext"/>
                     <Input type="text" placeholder="Search" onChange={this.props.filterposts} />
                     <ChatImg src={chat}  alt="chat"/>
