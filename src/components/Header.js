@@ -13,7 +13,7 @@ class Header extends React.Component {
                 <nav>
                     <img src={PictureLogo} alt="picturelogo"/>
                     <img src={Instagram} alt="instagramtext"/>
-                    <input type="text" placeholder="Search" onKeyDown={this.props.filterposts} />
+                    <input type="text" placeholder="Search" onChange={this.props.filterposts} />
                     <img src={chat}  alt="chat"/>
                     <img src={heart} alt="heart"></img>
                     <img src={avatar} alt="avatar"></img>
