@@ -1,6 +1,8 @@
 import  React, { Component } from 'react';
 import Loading from './Loading';
 
+
+
 const Authenticate = App => 
     class extends Component {
         constructor(){
@@ -32,7 +34,7 @@ const Authenticate = App =>
         }
 
         render(){
-            return (this.state.authenticated ?<App />:<Loading submit={this.submit} usernameInput={this.usernameInput} passwordInput={this.passwordInput}/>)         
+            return (this.state.authenticated ?<App /> :<Loading submit={this.submit} usernameInput={this.usernameInput} passwordInput={this.passwordInput}/>)         
         }
     }
 

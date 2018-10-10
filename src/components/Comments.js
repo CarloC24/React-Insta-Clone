@@ -1,9 +1,34 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import './css/content.scss';
 import heart from "./HeaderImg/heart.png"; 
 import chat from './HeaderImg/chat.png';
+import styled from 'styled-components';
 
+
+
+const CommentsWrapper = styled.div`margin-top:10px;`;
+
+const Likes = styled.p` font-weight: bold;
+                        padding-left:10px;
+                        font-size:24px;
+                        margin-bottom:10px;`
+const LikesSpan = styled.span`margin-left:5px;`                        
+
+const HeartComment = styled.img`padding-left:10px`;
+const ChatComment = styled.img`padding-left:15px`;
+
+const CommentsSection = styled.div`width:97%
+                                    margin:0 auto;`;
+const SectionP = styled.p`padding-left:5px;
+                          padding-top:10px;
+                          font-size:18px;
+                          margin-bottom:0px;`
+const SectionSpan = styled.span`font-weight:bold;
+                                font-size:20px;
+                                padding-right:10px;`
+const CommentsInput = styled.input` padding:5px;
+                                    width:97%;
+                                    margin:10px;`                                
 class Comments extends Component {
     constructor(props){
         super(props);
@@ -11,7 +36,7 @@ class Comments extends Component {
             comments: props.dataProp.comments,
             comment: "",
             count: props.dataProp.likes,
-        }
+        }     
     }
 
     setComment = event => {
@@ -39,21 +64,21 @@ class Comments extends Component {
     render() {
         const props = this.props;
         return(           
-            <div className="comments">
-                <p className="likes">{this.state.count}likes</p>
-                <img src={heart} alt="heartcontent" onClick={this.incrementLikes} />
-                <img src={chat} alt="chatcontent" />
+            <CommentsWrapper>
+                <Likes>{this.state.count}<LikesSpan>likes</LikesSpan></Likes>
+                <HeartComment src={heart} alt="heartcontent" onClick={this.incrementLikes} />
+                <ChatComment src={chat} alt="chatcontent" />
                 {this.state.comments.map( (item,index) => {
                     return(
-                        <div className="comments-section" key={index}>
-                        <p><span>{item.username}</span>{item.text}</p>
-                        </div>
+                        <CommentsSection key={index}>
+                        <SectionP><SectionSpan>{item.username}</SectionSpan>{item.text}</SectionP>
+                        </CommentsSection>
                     )
                 })}
                 <form onSubmit={this.addComment}>
-                    <input type="text" name={props.dataProp.username} onChange={this.setComment} />
+                    <CommentsInput type="text" name={props.dataProp.username} onChange={this.setComment} />
                 </form>               
-            </div>
+            </CommentsWrapper>
         )
     }
 }

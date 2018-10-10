@@ -25,6 +25,7 @@ filterPosts = event => {
       return postItem;
     }
   })
+  console.log(filtered);
   this.setState({specificPosts: filtered}); 
 }
 
