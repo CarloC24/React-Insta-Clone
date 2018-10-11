@@ -24,7 +24,7 @@ componentDidMount = () => {
 }
 
 filterPosts = event => {
-  const filtered = this.state.dummyData.filter(postItem => {
+  const filtered = this.state.dummyData.filter((postItem) =>  {
     if(postItem.username.includes(event.target.value)){
       return postItem;
     }
@@ -41,7 +41,6 @@ toggle = () => {
 }
 
 addNewPost = event => {
-  console.log('thisis runnning')
   let newPosts = this.state.dummyData.slice();
   if(sessionStorage.getItem("imageUrl") && sessionStorage.getItem("username")){
   newPosts.push({
@@ -67,6 +66,7 @@ addNewPost = event => {
 
 
   render() {
+    alert('you can add post using the little instagram photo have fun!')
     return (
       <div className="App">
       <Header filterposts={this.filterPosts} toggle={this.toggle}/>
