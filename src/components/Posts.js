@@ -13,14 +13,12 @@ class Posts extends Component {
        dummyData: [],
        specificPosts: [],
        addNewPosts: false,
-       newPost : {
-         
-       }
     }
     }
 
 componentDidMount = () => {  
     this.setState({dummyData: dummyData})
+    alert('you can add a post using the instagram logo')
 }
 
 filterPosts = event => {
@@ -52,9 +50,10 @@ addNewPost = event => {
          likes:0,
   })
   sessionStorage.clear();
-  this.setState(() => {
+  this.setState(prevState => {
     return{
       dummyData: newPosts,
+      addNewPosts:!prevState.addNewPosts
     }
   })
 }else{
@@ -66,7 +65,6 @@ addNewPost = event => {
 
 
   render() {
-    alert('you can add post using the little instagram photo have fun!')
     return (
       <div className="App">
       <Header filterposts={this.filterPosts} toggle={this.toggle}/>

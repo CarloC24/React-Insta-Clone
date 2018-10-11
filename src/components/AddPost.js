@@ -1,23 +1,47 @@
 import  React, { Component } from 'react';
-import PictureLogo from './HeaderImg/PictureLogo.png';
+import styled from 'styled-components';
+
+const AddPostForm = styled.form`display:flex;
+                                flex-direction:column;
+                                height:600px;
+                                margin:50px auto;
+                                width:60%;
+                                 `
+
+const AddPostInput = styled.input`padding:10px;
+                                  margin:10px auto;
+                                  width:60%;
+                                  font-size:16px;  `
+
+const PreviewerImage = styled.img`width:600px;
+                                  height:300px;
+                                  align-self:center;`                                  
 
  class AddNewPost extends Component {
+
+  constructor(){
+    super()
+    this.state = {
+      link:"",
+    }
+  }
+
+
   handleNewPost = event => {
     sessionStorage.setItem([event.target.name],(event.target.value))
    }
+
+   displayImage = event => {
+     this.setState({link:event.target.value});
+   }
   render() {
     return (
-      <div>
-        <form onSubmit={this.props.addNewPost} >
-            <img src={PictureLogo} onClick={this.props.toggle} alt="mainimg"></img>
-            <div>
-              <img src={sessionStorage.getItem('imageUrl')} alt="this should show your img if it doesnt it is invalid" />
-            </div>
-            <input type="text" name="imageUrl" onChange={this.handleNewPost} placeholder="imgUrl"/>
-            <input type="text" name="username" onChange={this.handleNewPost} placeholder="username"/> 
-            <input type="submit" value="submit" onSubmit={this.props.addNewPost} />   
-        </form>
-      </div>
+        <AddPostForm onSubmit={this.props.addNewPost} >
+            <PreviewerImage src={this.state.link} alt="your img should display" />
+            <AddPostInput type="text" name="imageUrl" onChange={this.handleNewPost} onInput={this.displayImage} placeholder="imgUrl"/>
+            <AddPostInput type="text" name="username" onChange={this.handleNewPost} placeholder="username"/> 
+            <AddPostInput type="submit" value="submit" onSubmit={this.props.addNewPost} />   
+        </AddPostForm>
     )
   }
 }
