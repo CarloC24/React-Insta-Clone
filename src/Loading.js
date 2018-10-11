@@ -37,15 +37,26 @@ const Img = styled.img`
 const HeadingText = styled.h1`align-self:center
                               font-size:30px;
                               margin:10px 0  `
+
+
 class Loading extends Component {
+   
+    usernameInput = event => {
+        localStorage.setItem('user',event.target.value);
+    }
+    passwordInput = event => {
+        localStorage.setItem('pass',event.target.value);
+    }
+
+
     render(){
         return(
            <Form onSubmit={this.props.submit}>
                 <Img src={Logo} alt="Insta Logo" />
                 <HeadingText>Username:</HeadingText>
-              <Input1 type="text" placeholder="username" name="username" onChange={this.props.usernameInput}/>
+              <Input1 type="text" placeholder="username" name="username" onChange={this.usernameInput}/>
                 <HeadingText>Password:</HeadingText>
-              <Input1 type="text" placeholder="password" name="password" onChange={this.props.passwordInput}/>
+              <Input1 type="text" placeholder="password" name="password" onChange={this.passwordInput}/>
               <Button type="submit" value="submit" onSubmit={this.props.submit} block color="primary" >Log In</Button>
            </Form>
         )
