@@ -65,17 +65,17 @@ class Comments extends Component {
         const props = this.props;
         return(           
             <CommentsWrapper>
+                <form onSubmit={this.addComment}>
                 <Likes>{this.state.count}<LikesSpan>likes</LikesSpan></Likes>
                 <HeartComment src={heart} alt="heartcontent" onClick={this.incrementLikes} />
-                <ChatComment src={chat} alt="chatcontent" />
+                <ChatComment src={chat} alt="chatcontents" />
                 {this.state.comments.map( (item,index) => {
                     return(
                         <CommentsSection key={index}>
                         <SectionP><SectionSpan>{item.username}</SectionSpan>{item.text}</SectionP>
                         </CommentsSection>
                     )
-                })}
-                <form onSubmit={this.addComment}>
+                })}               
                     <CommentsInput type="text" name={props.dataProp.username} onChange={this.setComment} />
                 </form>               
             </CommentsWrapper>

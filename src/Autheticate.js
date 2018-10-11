@@ -18,6 +18,7 @@ const Authenticate = App =>
                 this.setState(() => {
                     return {authenticated:true}
                 })
+                localStorage.clear();
             } else {
                 alert('Please put a username and password');
             }

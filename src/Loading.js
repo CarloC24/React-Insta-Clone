@@ -57,7 +57,7 @@ class Loading extends Component {
               <Input1 type="text" placeholder="username" name="username" onChange={this.usernameInput}/>
                 <HeadingText>Password:</HeadingText>
               <Input1 type="text" placeholder="password" name="password" onChange={this.passwordInput}/>
-              <Button type="submit" value="submit" onSubmit={this.props.submit} block color="primary" >Log In</Button>
+              <Button type="submit" value="submit" onSubmit={this.props.submit}  >Log In</Button>
            </Form>
         )
     } 

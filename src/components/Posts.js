@@ -41,21 +41,27 @@ toggle = () => {
 }
 
 addNewPost = event => {
+  console.log('thisis runnning')
+  let newPosts = this.state.dummyData.slice();
   if(sessionStorage.getItem("imageUrl") && sessionStorage.getItem("username")){
-  this.setState({newPost:{
+  newPosts.push({
          username:sessionStorage.getItem("username"),
          timestamp:Date.now(),
          comments: [],
          imageUrl: sessionStorage.getItem("imageUrl"),
          thumbnailUrl: "https://pbs.twimg.com/profile_images/973277209644249089/0Te2jtBH_400x400.jpg",
          likes:0,
-  }})
-  }else{
-    alert('Please add a imageurl or a username');
+  })
+  sessionStorage.clear();
+  this.setState(() => {
+    return{
+      dummyData: newPosts,
+    }
+  })
+}else{
+    alert('Please enter a valid imageUrl and Username');
   }
   event.preventDefault();
-  sessionStorage.clear();
-  const posts = this.state.dummyData.slice();
 }
  
 
