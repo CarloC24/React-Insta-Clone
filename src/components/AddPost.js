@@ -5,16 +5,17 @@ import PictureLogo from './HeaderImg/PictureLogo.png';
   constructor(){
     super()
   }
+  handleNewPost = event => {
+    sessionStorage.setItem([event.target.name],(event.target.value))
+   }
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.props.addNewPost}>
             <img src={PictureLogo} onClick={this.props.toggle} alt="mainimg"></img>
-            <input type="text" name="imgUrl" onChange={this.handleNewPost}/>
-            <input type="text" name="likes" onChange={this.handleNewPost}/>
-            <input type="text" name="thumbnailUrl" onChange={this.handleNewPost}/>
-            <input type="text" name="timestamp" onChange={this.handleNewPost}/>
-            <input type="text" name="username" onChange={this.handleNewPost}/>    
+            <input type="text" name="imageUrl" onChange={this.handleNewPost} placeholder="imgUrl"/>
+            <input type="text" name="username" onChange={this.handleNewPost} placeholder="username"/> 
+            <input type="submit" value="submit" onSubmit={this.props.addNewPost}/>   
         </form>
       </div>
     )
